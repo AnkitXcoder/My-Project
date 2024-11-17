@@ -3,7 +3,7 @@ body{
   margin:0;
   padding:0;
   margin:0;
-  
+   overflow-x: hidden;     /*  for element */
 }
 
 /* Responsive Adjustments */
@@ -17,6 +17,8 @@ body{
     /* Adjust the search bar width */
     .nav-search {
       width: 100%;
+      width: 100%; /* Take up full width on smaller screens */
+      max-width: 600px; /* Cap the maximum width */
     }
   }
   
@@ -25,6 +27,8 @@ body{
     .nav2-bar, .item-2, .item-3, .item-4 {
       padding: 8px 10px;
       font-size: 14px;
+      .nav-search {
+        max-width: 100%;
     }
   
     /* Hide unnecessary items or adjust layout further if needed */
@@ -32,45 +36,88 @@ body{
       display: none;
     }
   }
+  }
 
+  /* more media quary for phone  */
+
+  @media (max-width: 480px) {
+    /* Stack navigation items vertically */
+    .main_nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    /* Resize logo */
+    .logo {
+      height: 50px;
+      width: 80px;
+    }
+  
+    /* Adjust font sizes */
+    .nav2 a {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+  
+    /* Adjust search bar elements */
+    .search-input {
+      width: 90%; /* Make it adapt to screen size */
+      font-size: 1rem; /* Reduce text size */
+    }
+  }
+
+  /* for hiding */
+  .container {
+    overflow: auto;
+    max-width: 100%;
+  }
+  
 
   
 .main_nav{
 
-    height:100%;
+    height:120px;
     width: auto;
     background-color:#0F1111;
     display:flex;
     align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content:space-evenly;
+    border: 2px solid transparent;/* Define a consistent border width */
+    transition: border-color 0.3s ease; /* Smooth transition */
+    outline: none; /* No outline by default */
+    padding-top: 0px;
+   
   
 }
+
                                                 /** Box-1 **/
 .logo{
-    height:80px;
-    width:100px;
+    height:90px;
+    width:auto;
     margin-right:0.1px;
 
+}
+.logo:hover{
+  background-color:#0F1111;
+  
 }
                                                 /** Border Effect **/
  
 .border{
     border: 1.5px solid transparent;
-    box-sizing: border-box;
     padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box;
 }
   
 .border:hover{
-border: 1.2px solid white;
+  border-color: white; /* Only change the color, not the size */
+  
 }
 
 
                                                 /** Box-2 **/
                                                 
-.nav-search:hover{
-border: 2px solid orange;
-}   
-
 .second-box{
     display:flex;
     align-items:center;
@@ -134,7 +181,7 @@ border: 2px solid orange;
     justify-content:center;
     font-size:1.2rem;
     border:none;
-    background-color:rgb(232, 93, 213);
+    background-color:rgb(196, 196, 196);
  }
 
 
@@ -302,7 +349,10 @@ span:hover + div {
   opacity: 0; /* Start hidden */
     transform: scale(0.5); /* Scale effect for appearance */
     animation: productAppear 2s ease-out forwards; /* Product animation */
+    margin: 0; 
+    padding: 0; 
 }
+
 /* Product entry animation */
 @keyframes productAppear {
   0% {
@@ -334,43 +384,10 @@ span:hover + div {
  
 }
 
-/* .button{
-  display:flex;
-  flex-direction:column;
-  padding-left:20px;
-  padding-right:20px;
-  background-color: blue; 
-  color: white; */
-  /* padding: 0px 0px; */     /*    ask from bhaiya   */    
-/* } */
-
-/* .button {
-  background-color: #f0c14b; /* Amazon's primary yellow color */
-   /* border: none;
-  border-radius: 2px;
-  color: #000;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
-
-}
-.button:hover {
-  background-color: #ddb347; /* Slightly darker yellow */
-   /* transition: background-color 0.3s ease-in-out;
-}
-
-.button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-} */
 .button {
   display:flex;
   flex-direction: column;
-  background-color: white; /* Amazon-like yellow */
+  background-color: whitesmoke; /* Amazon-like yellow */
   color: #111; /* Dark text */
   border: 1px solid #a88734; /* Slight border */
   border: none;
@@ -497,3 +514,15 @@ span:hover + div {
   }
 }
 
+h1{
+  padding-left: 10px;
+}
+
+#liveselling{
+  padding-left: 10px;
+  /* padding-bottom: 200px; */
+}
+.live{
+  background-color:aqua;
+  padding-bottom: 10px;
+}
