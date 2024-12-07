@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - E-commerce Site</title>
+  <style>
+    /* Basic styling for the form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: transparent;
+    }
+    .login-container {
+      width: 300px;
+      padding: 20px;
+      background-color: white;
+      margin: 100px auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+    .guest-access {
+  display: inline-block;
+  width: 278px;
+  text-align: center;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #f0ad4e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.guest-access:hover {
+  background-color: #ec971f;
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Sign In</h2>
+    <form id="loginForm">
+      <label for="identifier">Email or Phone Number:</label>
+      <input type="text" id="identifier" name="identifier" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Sign In</button>
+      <div class="error" id="errorMsg"></div>
+
+      <a href="index.html" class="guest-access"> Sign In without Login</a>
+      
+    </form>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const identifier = document.getElementById('identifier').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ identifier, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Save JWT token (you can use localStorage or cookies)
+          localStorage.setItem('token', data.token);
+          // Redirect to dashboard or home page
+          window.location.href = '/dashboard.html';
+        } else {
+          errorMsg.textContent = data.message;
+        }
+      } catch (error) {
+        errorMsg.textContent = 'An error occurred. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>

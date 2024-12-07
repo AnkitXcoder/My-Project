@@ -8,11 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    
 </head>
-
-<!----     Upper Body   ---->
-
-<body>                                      <!---- ERROR -->
-  <div class="main_nav">                   <!-- hover not fully covered -->
+<body>                               
+  <div class="main_nav">                 
      <div>
       <img src="assets/create-a-unique-modern-logo-for-an-e-commerce-website-designed-by-ankit-the-logo-should-combine-sl-416193090.jpeg"      class="logo border">
      </div>
@@ -39,8 +36,8 @@
   </div>
 
   <div class="nav-account border">
-    <p id="nav-hello"><span
-      >Hello,Sign in</span></p>
+    <a id="nav-hello"  href="login.html"><span
+      >Hello,Sign in</span></a>
       <p id="nav-account">Account & Lists</p>
   </div>
   
@@ -56,25 +53,18 @@
 
    </div>
  
-                <!-----    Body-2     ----->
-
   <div class="nav2">
   <div class="nav2-bar border"> <i class="fa-solid fa-bars"> All</i></div>
    <a id="item-2"  href="https://www.amazon.in/alm/storefront?almBrandId=ctnow&ref_=nav_cs_fresh" target="_blank" class="item-2 border" > Fresh </a>
    <a id="item-3"   href="sell.html"target="_blank" class="item-3 border"> Sell</a>
    <a id="item-4" class="item-3 border"> ShopNow</a>
-
   </div>
-                <!-----     Body-3  ----->
-<!--                 
-  <div class="nav3">
-    <div class="nav3-arrow"><i class="fa-solid fa-chevron-left"></i></div>
-   </div> -->
-   
    <div class="md">
     <div class="classnamep" id="flower-section">
        <h1> Best Choice </h1>
   </div>
+  
+
    <!-- Product 01-->
     <h1 id="md-text">Our Products</h1>
 
@@ -309,6 +299,16 @@
 <div class="live">
    <h1>Live Selling</h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eZZ56JP436A?si=dNes8clmLk6oR5Yi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen id="liveselling"></iframe>
+</div>
+
+<!-- Floating Chatbot Button -->
+<div id="chatbot-button" onclick="toggleChatbot()">
+  <img src="assets/LS20241205221448.png" alt="Chatbot Logo" style="width: 40px; height: 40px;">
+</div>
+
+<!-- Chatbot Iframe -->
+<div id="chatbot-container">
+  <iframe src="http://127.0.0.1:5000/" id="chatbot-iframe" frameborder="0"></iframe>
 </div>
 <script src="main.js"></script>
 </body>

@@ -78,3 +78,16 @@ document.querySelector(".classnamep").addEventListener("mouseenter", function ()
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   
+  function toggleChatbot() {
+    const chatbotContainer = document.getElementById("chatbot-container");
+    if (chatbotContainer.style.display === "none" || !chatbotContainer.style.display) {
+        chatbotContainer.style.display = "block";
+    } else {
+        chatbotContainer.style.display = "none";
+    }
+}
+
+// Optional: Show chatbot after a delay
+setTimeout(() => {
+    document.getElementById("chatbot-button").style.display = "block";
+}, 5000); // Adjust the time as needed
